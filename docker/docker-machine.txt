@@ -1,0 +1,24 @@
+part four
+# init 操作，把 10.98.78.189 设置为 manger
+docker-machine ssh myvm11 "docker swarm init --advertise-addr 10.98.78.189"  
+执行之后会弹出
+docker swarm join --token SWMTKN-1-5t15qtl6ms1pnk75j9zcd7yq1iayrhneiiw7yrbtpxvg0ryrh0-a9bvu7hgz1ru4m8iwiii3kbwv 10.98.78.189:2377
+
+# 用mymv22 加入到 mymv11中去
+docker-machine ssh myvm22 "docker swarm join --token SWMTKN-1-5t15qtl6ms1pnk75j9zcd7yq1iayrhneiiw7yrbtpxvg0ryrh0-a9bvu7hgz1ru4m8iwiii3kbwv 10.98.78.189:2377"
+
+
+# 如何访问 远程 Docker machine，执行命令
+# 方式1
+1.		docker-machine env myvm22
+2.		eval "$(docker-machine env myvm22)"
+3. 		docker container ls
+
+# 方式2
+		docker-machine ssh myvm22 "docker container ls"
+		
+		
+		
+part five
+
+		
